@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wessex — Programador</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0c10;
+      --card-bg: #13131a;
+      --text: #e6e6ff;
+      --text-muted: #a8a8cc;
+      --accent: #d08cff;
+      --accent-hover: #e5a5ff;
+      --border: #282838;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 300;
+      line-height: 1.72;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 660px;
+      width: 100%;
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 2.5rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.1rem;
+    }
+
+    h1 {
+      font-family: 'Fira Code', monospace;
+      font-weight: 500;
+      font-size: 2.25rem;
+      letter-spacing: -0.8px;
+      background: linear-gradient(135deg, #e5a5ff, #d08cff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.08rem;
+      font-weight: 400;
+      letter-spacing: -0.2px;
+    }
+
+    section {
+      margin-bottom: 1.8rem;
+    }
+
+    h2 {
+      font-family: 'Fira Code', monospace;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 0.85rem;
+      letter-spacing: -0.3px;
+    }
+
+    p {
+      color: var(--text);
+      font-weight: 300;
+      font-size: 1.04rem;
+      letter-spacing: -0.1px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin-top: 0.7rem;
+    }
+
+    .skill {
+      font-family: 'Fira Code', monospace;
+      background: rgba(208, 140, 255, 0.16);
+      color: var(--accent);
+      padding: 6px 15px;
+      border-radius: 22px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid rgba(208, 140, 255, 0.28);
+      letter-spacing: -0.2px;
+    }
+
+    .discord-btn {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 10px 22px;
+      background: rgba(208, 140, 255, 0.18);
+      color: var(--accent);
+      text-decoration: none;
+      border-radius: 14px;
+      font-family: 'Fira Code', monospace;
+      font-weight: 500;
+      font-size: 0.94rem;
+      border: 1px solid rgba(208, 140, 255, 0.32);
+      transition: all 0.22s ease;
+      letter-spacing: -0.2px;
+    }
+
+    .discord-btn:hover {
+      background: rgba(208, 140, 255, 0.28);
+      transform: translateY(-2px);
+      color: #f0d5ff;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 2rem;
+      }
+      h1 {
+        font-size: 1.9rem;
+        letter-spacing: -0.6px;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Wessex</h1>
+      <p class="subtitle">Chamo que le gusta programar</p>
+    </header>
+
+    <section>
+      <h2>Hola, ¿qué tal?</h2>
+      <p>
+        Soy un chico al que le gusta mucho programar.  
+        Me divierte hacer cosas que funcionen como yo las pienso,
+        y cada día trato de aprender algo nuevo.
+        <br><br>
+        No soy experto en nada, pero sí constante. Y mientras siga
+        entendiendo más, sigo adelante.
+      </p>
+    </section>
+
+    <section>
+      <h2>En qué programo</h2>
+      <div class="skills">
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">Lua</span>
+        <span class="skill">Python (aprendiendo)</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>¿Quieres escribirme?</h2>
+      <p>
+        Si quieres hablar, tirar ideas o simplemente saludar,  
+        búscame en Discord como <strong>pastasola</strong>.
+      </p>
+      <a href="#" class="discord-btn">
+        Agregame en Discord
+      </a>
+    </section>
+  </div>
+</body>
+</html>
