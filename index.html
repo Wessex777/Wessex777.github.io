@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wessex — Programador</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0c0c10;
@@ -14,6 +14,7 @@
       --accent: #d08cff;
       --accent-hover: #e5a5ff;
       --border: #282838;
+      --glow: rgba(208, 140, 255, 0.3);
     }
 
     * {
@@ -23,7 +24,7 @@
     }
 
     body {
-      background-color: var(--bg);
+      background: var(--bg) url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231a1a25' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
       color: var(--text);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: 300;
@@ -39,107 +40,150 @@
       max-width: 660px;
       width: 100%;
       background: var(--card-bg);
-      border-radius: 18px;
-      padding: 2.5rem;
+      border-radius: 20px;
+      padding: 2.8rem;
       border: 1px solid var(--border);
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
+      box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(208, 140, 255, 0.08);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     header {
       text-align: center;
-      margin-bottom: 2.1rem;
+      margin-bottom: 2.3rem;
     }
 
     h1 {
       font-family: 'Fira Code', monospace;
       font-weight: 500;
-      font-size: 2.25rem;
-      letter-spacing: -0.8px;
-      background: linear-gradient(135deg, #e5a5ff, #d08cff);
+      font-size: 2.4rem;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #e5a5ff, #d08cff, #b87bff);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 12px var(--glow);
     }
 
     .subtitle {
       color: var(--text-muted);
-      font-size: 1.08rem;
+      font-size: 1.12rem;
       font-weight: 400;
       letter-spacing: -0.2px;
     }
 
     section {
-      margin-bottom: 1.8rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(8px);
+      animation: slideUp 0.5s ease-out forwards;
+    }
+
+    section:nth-child(2) { animation-delay: 0.1s; }
+    section:nth-child(3) { animation-delay: 0.2s; }
+    section:nth-child(4) { animation-delay: 0.3s; }
+
+    @keyframes slideUp {
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h2 {
       font-family: 'Fira Code', monospace;
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       font-weight: 500;
       color: var(--accent);
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.9rem;
       letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h2::before {
+      content: "▹";
+      color: var(--accent);
+      font-size: 1.1rem;
     }
 
     p {
       color: var(--text);
       font-weight: 300;
-      font-size: 1.04rem;
+      font-size: 1.06rem;
       letter-spacing: -0.1px;
+      line-height: 1.7;
     }
 
     .skills {
       display: flex;
       flex-wrap: wrap;
-      gap: 11px;
-      margin-top: 0.7rem;
+      gap: 12px;
+      margin-top: 0.8rem;
     }
 
     .skill {
       font-family: 'Fira Code', monospace;
-      background: rgba(208, 140, 255, 0.16);
+      background: rgba(208, 140, 255, 0.12);
       color: var(--accent);
-      padding: 6px 15px;
-      border-radius: 22px;
-      font-size: 0.9rem;
+      padding: 7px 16px;
+      border-radius: 50px;
+      font-size: 0.92rem;
       font-weight: 500;
-      border: 1px solid rgba(208, 140, 255, 0.28);
+      border: 1px solid rgba(208, 140, 255, 0.22);
+      transition: all 0.25s ease;
       letter-spacing: -0.2px;
+    }
+
+    .skill:hover {
+      background: rgba(208, 140, 255, 0.22);
+      transform: scale(1.03);
     }
 
     .discord-btn {
       display: inline-block;
-      margin-top: 14px;
-      padding: 10px 22px;
-      background: rgba(208, 140, 255, 0.18);
+      margin-top: 16px;
+      padding: 11px 24px;
+      background: rgba(208, 140, 255, 0.15);
       color: var(--accent);
       text-decoration: none;
-      border-radius: 14px;
+      border-radius: 16px;
       font-family: 'Fira Code', monospace;
       font-weight: 500;
-      font-size: 0.94rem;
-      border: 1px solid rgba(208, 140, 255, 0.32);
-      transition: all 0.22s ease;
+      font-size: 0.96rem;
+      border: 1px solid rgba(208, 140, 255, 0.3);
+      transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
       letter-spacing: -0.2px;
+      box-shadow: 0 0 0 0 var(--glow);
     }
 
     .discord-btn:hover {
       background: rgba(208, 140, 255, 0.28);
-      transform: translateY(-2px);
       color: #f0d5ff;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px var(--glow);
     }
 
     @media (max-width: 600px) {
       .container {
-        padding: 2rem;
+        padding: 2rem 1.8rem;
+        border-radius: 18px;
       }
       h1 {
-        font-size: 1.9rem;
-        letter-spacing: -0.6px;
+        font-size: 2rem;
+        letter-spacing: -0.7px;
       }
       p {
         font-size: 1rem;
+      }
+      h2 {
+        font-size: 1.12rem;
       }
     }
   </style>
@@ -180,8 +224,8 @@
         Si quieres hablar, tirar ideas o simplemente saludar,  
         búscame en Discord como <strong>pastasola</strong>.
       </p>
-      <a href="#" class="discord-btn">
-        Agregame en Discord
+      <a href="https://discord.com/users/848408347618836502" target="_blank" rel="noopener" class="discord-btn">
+        Ver mi perfil en Discord
       </a>
     </section>
   </div>
